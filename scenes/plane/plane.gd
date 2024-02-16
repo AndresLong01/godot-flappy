@@ -1,13 +1,13 @@
 extends CharacterBody2D
+
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var animation_player = $AnimationPlayer
 
-const GRAVITY: float = 1600.0
-const POWER: float = -400.0
+const GRAVITY: float = 1500.0
+const POWER: float = -500.0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -26,3 +26,4 @@ func fly() -> void:
 func die() -> void:
 	sprite.stop()
 	set_physics_process(false)
+	SignalManager.on_plane_died.emit()
