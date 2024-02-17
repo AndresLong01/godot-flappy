@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://blkxpj6d2mnig"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_be0fn"]
-[ext_resource type="Texture2D" uid="uid://cd0tptpmqfvy1" path="res://assets/background/rocks_2.png" id="1_w62ma"]
 [ext_resource type="PackedScene" uid="uid://b0p5vfi40xqa3" path="res://scenes/plane/plane.tscn" id="2_jo5sr"]
+[ext_resource type="PackedScene" uid="uid://dmcfkyngoe3cx" path="res://scenes/scrollingbg/scrolling_bg.tscn" id="3_77x5t"]
 [ext_resource type="PackedScene" uid="uid://g7nsilrgsmm6" path="res://scenes/barrier/barrier.tscn" id="3_ixa01"]
 [ext_resource type="PackedScene" uid="uid://c8cdrhtreem8c" path="res://scenes/pipes/pipes.tscn" id="4_4eyvv"]
 [ext_resource type="PackedScene" uid="uid://5fe2k80b2h6k" path="res://scenes/hud/hud.tscn" id="6_qau3b"]
@@ -12,9 +12,7 @@
 script = ExtResource("1_be0fn")
 pipes_scene = ExtResource("4_4eyvv")
 
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(-78, 325)
-texture = ExtResource("1_w62ma")
+[node name="ScrollingBG" parent="." instance=ExtResource("3_77x5t")]
 
 [node name="Plane" parent="." instance=ExtResource("2_jo5sr")]
 position = Vector2(60, 374)
