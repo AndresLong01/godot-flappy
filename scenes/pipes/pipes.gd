@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var score_sound = $ScoreSound
+
 const SCROLL_SPEED: float = 160.0
 
 # Called when the node enters the scene tree for the first time.
@@ -20,3 +22,4 @@ func _on_pipe_body_entered(body):
 func _on_laser_body_exited(body):
 	if body.is_in_group(GameManager.GROUP_PLAYER) == true:
 		ScoreManager.increment_score()
+		score_sound.play()

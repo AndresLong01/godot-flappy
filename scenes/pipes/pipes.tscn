@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8cdrhtreem8c"]
+[gd_scene load_steps=5 format=3 uid="uid://c8cdrhtreem8c"]
 
 [ext_resource type="PackedScene" uid="uid://cbl3w5tqucfx1" path="res://scenes/laser/laser.tscn" id="1_jcyjr"]
 [ext_resource type="Script" path="res://scenes/pipes/pipes.gd" id="1_px1ht"]
 [ext_resource type="PackedScene" uid="uid://xpbpeu6423h1" path="res://scenes/pipe/pipe.tscn" id="2_snc5i"]
+[ext_resource type="AudioStream" uid="uid://lksfm40w0tpg" path="res://assets/audio/score.wav" id="4_kgoa5"]
 
 [node name="Pipes" type="Node2D"]
 script = ExtResource("1_px1ht")
@@ -18,6 +19,10 @@ rotation = 3.14159
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(75, 0)
+
+[node name="ScoreSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_kgoa5")
+volume_db = -20.0
 
 [connection signal="body_exited" from="Laser" to="." method="_on_laser_body_exited"]
 [connection signal="body_entered" from="Lower" to="." method="_on_pipe_body_entered"]

@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var engine_sound = $EngineSound
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var animation_player = $AnimationPlayer
 
@@ -24,6 +25,7 @@ func fly() -> void:
 		animation_player.play("power")
 
 func die() -> void:
+	engine_sound.stop()
 	sprite.stop()
 	set_physics_process(false)
 	SignalManager.on_plane_died.emit()
